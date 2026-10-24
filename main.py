@@ -18,7 +18,7 @@ def _get_python_exe(python_version):
         str : Pythonランタイムファイル名
     """
     match platform.system():
-        case 'windows':
+        case 'Windows':
             return (True, f'py -{python_version}')
         case 'Darwin':
             return (True, f'python{python_version}')
