@@ -8,10 +8,22 @@ sys.dont_write_bytecode = True
 
 
 def _get_python_exe(python_version):
-    """pythonランタイムのファイル名取得"""
-    if platform.system() == 'windows':
-        return f'py -{python_version}'
-    return f'python{python_version}'
+    """pythonランタイムのファイル名取得
+    Returns
+    -------
+    (bool, str) : tuple
+        bool : プラットフォーム判定結果
+            True : macOS, Windows
+            False: その他
+        str : Pythonランタイムファイル名
+    """
+    match platform.system():
+        case 'windows':
+            return (True, f'py -{python_version}')
+        case 'Darwin':
+            return (True, f'python{python_version}')
+        case _:
+            return (False, '')
 
 
 def _update(python_exe):
@@ -87,7 +99,11 @@ def main():
     # パッケージ更新
     for python_version in python_versions:
         # pythonランタイムファイル名取得
-        python_exe = _get_python_exe(python_version)
+        ret, python_exe = _get_python_exe(python_version)
+
+        if not ret:
+            print('macOS、またはWindowsで実行してください')
+            break
 
         # 更新パッケージ情報取得
         ret, pkgs = _update(python_exe)
