@@ -2,7 +2,7 @@
 
 import platform
 import sys
-from subprocess import run, PIPE
+from subprocess import PIPE, run
 
 sys.dont_write_bytecode = True
 
