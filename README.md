@@ -23,7 +23,7 @@ Pythonパッケージの一括更新ツール
 ### macOS
 
 ```
-> git clonse https://github.com/mizokichicode/pip-update.git
+> git clonse https://github.com/mizokichicode/pip_update.git
 > cd pip-update
 > python3 main.py
 ```
@@ -31,7 +31,7 @@ Pythonパッケージの一括更新ツール
 ### Windows
 
 ```
-> git clonse https://github.com/mizokichicode/pip-update.git
+> git clonse https://github.com/mizokichicode/pip_update.git
 > cd pip-update
 > py main.py
 ```
